@@ -25,13 +25,13 @@ namespace PigLatin
         }
 
         /// <summary>
-        /// Returns true if the word begins with a vowel
+        /// Accepts the first letter as string
         /// </summary>
-        /// <param name="word"></param>
-        /// <returns>bool</returns>
-        private static bool BeginsWithVowel(string word)
+        /// <param name="letter"></param>
+        /// <returns>True if letter is a vowel</returns>
+        private static bool BeginsWithVowel(string letter)
         {
-            if (vowel.Contains(word))
+            if (vowel.Contains(letter))
             {
                 return true;
             }
