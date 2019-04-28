@@ -23,10 +23,10 @@ namespace PigLatin
 
                 foreach (string word in words)
                 {
-                    translation += string.Format(" " + Translator.TranslateWordToPigLatin(word));
+                    translation += @" " + Translator.TranslateWordToPigLatin(word);
                 }
 
-                UserInput.UserInput.Display(string.Format($"\nThe translation is: {translation}\n"));
+                UserInput.UserInput.Display(string.Format("\nThe translation is: {0}\n", translation));
                                
                 _continue = UserInput.UserInput.UserConfirmationPrompt(string.Format("\nTranslate another line!<Y/N> "));
             }

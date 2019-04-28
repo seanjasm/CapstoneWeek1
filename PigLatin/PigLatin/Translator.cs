@@ -55,8 +55,7 @@ namespace PigLatin
         /// <returns>Return translated word without ending punctuation</returns>
         private static string TranslationForWordBeginConsonant(string word)
         {
-            string leadingConsonants = "";
-            int counter = 0;//Used to find the index of substring to copy
+            int IndexOfVowel = 0;//Used to find the index of substring to copy
 
             //Find all the consonant starting from the beginning of the word 
             //before the first vowel
@@ -64,16 +63,15 @@ namespace PigLatin
             {                
                 if (!BeginsWithVowel(c.ToString()))
                 {
-                    leadingConsonants += c.ToString();
+                    IndexOfVowel++;
                 }
                 else
                 {
                     break;//If c is a vowel
                 }
-                counter++;
             }
 
-            return string.Format("{0}{1}ay", word.Substring(counter), leadingConsonants);
+            return string.Format("{0}{1}ay", word.Substring(IndexOfVowel), word.Substring(0, IndexOfVowel));
         }
 
         /// <summary>
@@ -126,7 +124,7 @@ namespace PigLatin
         private static bool IsWord(string word)
         {
             //Checks word has symbols and numbers. If is NOT is a word
-            bool isWord = !new Regex(@".*[\[\]0-9@~`<>|+^%$#&]+.*").IsMatch(word);
+            bool isWord = !new Regex(@".*[\[\]0-9@~`<>|+^%$#&(\{\})]+.*").IsMatch(word);
 
             return isWord;
         }        
